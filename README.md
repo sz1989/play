@@ -37,5 +37,10 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## COMMANDS
 ```
+kill the port:
 npx kill-port 3000
+
+git config --global -e
+git config http.sslVerify false
+git config http.sslVerify true
 ```
