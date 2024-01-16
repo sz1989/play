@@ -44,3 +44,9 @@ git config --global -e
 git config http.sslVerify false
 git config http.sslVerify true
 ```
+
+```
+const locationHeader = response.headers.get('Location');
+Access-Control-Expose-Headers: Location
+response.headers.add("Access-Control-Expose-Headers","Authorization")
+```
