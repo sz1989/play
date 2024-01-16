@@ -40,7 +40,26 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 kill the port:
 npx kill-port 3000
 
+cmd.Palette -> Simple Browse
+
 git config --global -e
 git config http.sslVerify false
 git config http.sslVerify true
 ```
+
+```
+const locationHeader = response.headers.get('Location');
+Access-Control-Expose-Headers: Location
+response.headers.add("Access-Control-Expose-Headers","Authorization")
+```
+
+```
+Intl.NumberFormat
+const currencyFormatter = Intl.NumberFormat("en-US", { style: "currency",   currency: "USD",   maximumFractionDigits: 0, });
+export default currencyFormatter;
+Usage:  currencyFormatter.format(house.price)
+```
+
+## VS Plug In
+
+Sapling  React snippets (‘rafce’) ext install dsznajder.es7-react-js-snippets
