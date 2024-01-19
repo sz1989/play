@@ -41,18 +41,24 @@ export function SimplePropsboard(props: ChildComponentProps) {
     );
 }
 
+// declare a anymous function
 interface MyParentProps {
     isParent: boolean;
-    changeIsParent: () => void;
+    changeIsParent: (s: boolean) => void;
 }
 
 export function MyParent(){
     const [isParent, setIsParent] = useState(true);
 
+    function SetMy(flag: boolean) : void {
+        console.log('calling flag', flag);
+        setIsParent(flag);
+    }
     return(
         <>
             <Child isParent={isParent} 
-            changeIsParent={_isParent => setIsParent(isParent => !isParent)}/>
+            //changeIsParent={_isParent => setIsParent(isParent => !isParent)}/>
+            changeIsParent={foo => SetMy(foo)} />
         </>
     );
 }
@@ -61,7 +67,11 @@ function Child(props: MyParentProps) {
     return(
         <>
         <h3>{props.isParent? "I am the child component of Parent": "There might be a bug"}</h3>
-        <button onClick={() => props.changeIsParent()}>Click Me</button>
+        <button onClick={() => props.changeIsParent(props.isParent)}>Click Me</button>
+        <button onClick={e => {
+            console.log('click', e);
+            props.changeIsParent(false);
+        }}>Click You</button>
         </>
     );
 }

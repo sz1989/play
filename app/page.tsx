@@ -1,4 +1,4 @@
-import { SimplePropsboard, Simpleboard } from "./dashBoard";
+import { MyParent, SimplePropsboard, Simpleboard } from "./dashBoard";
 
 export default function Home() {
   return (
@@ -7,6 +7,7 @@ export default function Home() {
       PLAYGROUND
       <Simpleboard  name="xx" />
       <SimplePropsboard name="Calling from Props" />
+      <MyParent />
     </main>
   )
 }
