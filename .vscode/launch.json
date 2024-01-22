@@ -8,10 +8,10 @@
         "command": "npm run dev"
       },
       {
-        "name": "Next.js: debug client-side",
+        "name": "Next.js: debug client-side in chrome",
         "type": "chrome",
-        "request": "launch",
-        "url": "http://localhost:65000",
+        "request": "attach",
+        "url": "http://localhost:3000",
         "webRoot": "${workspaceFolder}"
       },
       {
@@ -27,16 +27,3 @@
       }
     ]
 }
-
-// {
-//     "version": "0.2.0",
-//     "configurations": [
-//         {
-//             "type": "chrome",
-//             "request": "launch",
-//             "name": "Launch Chrome against localhost",
-//             "url": "http://localhost:3000",
-//             "webRoot": "${workspaceFolder}"
-//         }
-//     ]
-// }
