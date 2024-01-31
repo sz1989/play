@@ -61,6 +61,11 @@ export function MyParent(){
 }
 
 function Child(props: MyParentProps) {
+    const [caption, setCaption] = useState("Caption");
+
+    const updateCaption = (e: React.MouseEvent) => {
+        setCaption("FOO");
+    }
     return(
         <>
         <h3>{props.isParent? "I am the child component of Parent": "There might be a bug"}</h3>
@@ -68,6 +73,7 @@ function Child(props: MyParentProps) {
             console.log('click');
             props.changeIsParent(props.isParent);
         }}>Click You</button>
+        <button onClick={updateCaption}>{caption}</button>
         </>
         // or <button onClick={() => setIsParent(props.isParent)} 
     );
@@ -77,3 +83,13 @@ function Child(props: MyParentProps) {
 // const toDoItem = { text: "Wash clothes", completed: false}
 // return (<ToDoItem {...toDoItem} />);
 // use destructing syntax for receiving props
+
+type Icon = ''
+
+export function MyParentErrBoundary(props: any) {
+    return(
+        <div className="single-task text-bg-danger">
+            <b>ERROR PROCESSING ToDo: {JSON.stringify(props)}</b>
+        </div>
+    );
+}

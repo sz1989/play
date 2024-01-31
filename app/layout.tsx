@@ -7,12 +7,13 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Play Ground',
   description: 'My Play Ground',
+  // meta:charset="UTF-8"
 }
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode   // ReactNode
 }) {
   return (
     <html lang="en">

@@ -62,4 +62,10 @@ Usage:  currencyFormatter.format(house.price)
 
 ## VS Plug In
 
-Sapling  React snippets (‘rafce’) ext install dsznajder.es7-react-js-snippets
+* Sapling 
+* React snippets (‘rafce’) ext install dsznajder.es7-react-js-snippets 
+
+## NPM
+error boundary: npm install react-error-boundary
+
+Typescript for a functional component is React.FunctionComponent or React.FC (https://stackoverflow.com/questions/56947690/react-component-type-in-typescript)
