@@ -41,10 +41,6 @@ kill the port:
 npx kill-port 3000
 
 cmd.Palette -> Simple Browse
-
-git config --global -e
-git config http.sslVerify false
-git config http.sslVerify true
 ```
 
 ```
@@ -69,3 +65,14 @@ Usage:  currencyFormatter.format(house.price)
 error boundary: npm install react-error-boundary
 
 Typescript for a functional component is React.FunctionComponent or React.FC (https://stackoverflow.com/questions/56947690/react-component-type-in-typescript)
+
+
+## GIT
+```
+git config --global -e
+git config http.sslVerify false
+git config http.sslVerify true
+```
+```
+git config -e 
+```

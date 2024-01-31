@@ -1,11 +1,9 @@
 import { User } from "./demo";
 
 interface SideBarProps {
-    user: User;
+  user: User;
 }
 
-export default function Sidebar({user}: SideBarProps) {
- return <div>
-    {user.name}
- </div>
-};
+export default function Sidebar({ user }: SideBarProps) {
+  return <div>{user.name}</div>;
+}
