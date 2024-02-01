@@ -1,82 +1,90 @@
-"use client"
+"use client";
 import { useState } from "react";
 import Profile from "./Profile";
 import Sidebar from "./Sidebar";
 import { User } from "./demo";
 // -- passing Props.property
 interface DashboardProps {
-    user: User;
+  user: User;
 }
 
-export default function Dashboard({user}: DashboardProps) {
-    return (
-        <div>
-        'Dashboard'
-        <Sidebar user={user}></Sidebar>
-        <Profile user={user}></Profile>            
-        </div>
-    );
+export default function Dashboard({ user }: DashboardProps) {
+  return (
+    <div>
+      &apos;Dashboard&apos;
+      <Sidebar user={user}></Sidebar>
+      <Profile user={user}></Profile>
+    </div>
+  );
 }
 
 // -- declare Props.property directly
-export function Simpleboard({name}: {name:string}) {
-    return (
-        <div>
-            <p>{name}</p>
-        </div>
-    );
+export function Simpleboard({ name }: { name: string }) {
+  return (
+    <div>
+      <p>{name}</p>
+    </div>
+  );
 }
 
 // -- declare Props
 interface ChildComponentProps {
-    name: string;
+  name: string;
 }
 
 export function SimplePropsboard(props: ChildComponentProps) {
-    console.log(props);
-    const {name} = props;
-    return (
-        <Simpleboard name={name} />
-    );
+  console.log(props);
+  const { name } = props;
+  return <Simpleboard name={name} />;
 }
 
 // declare a anymous function
 interface MyParentProps {
-    text?: string;
-    isParent: boolean;
-    changeIsParent: (s: boolean) => void;
+  text?: string;
+  isParent: boolean;
+  changeIsParent: (s: boolean) => void;
 }
 
-export function MyParent(){
-    const [isParent, setIsParent] = useState<boolean>(true);    // useState<boolean|null>
-    return(
-        <>
-            <Child isParent={isParent} 
-            changeIsParent={arg => {
-                console.log(arg);
-                setIsParent(!arg);
-            }} />
-        </>
-    );
+export function MyParent() {
+  const [isParent, setIsParent] = useState<boolean>(true); // useState<boolean|null>
+  return (
+    <>
+      <Child
+        isParent={isParent}
+        changeIsParent={(arg) => {
+          console.log(arg);
+          setIsParent(!arg);
+        }}
+      />
+    </>
+  );
 }
 
 function Child(props: MyParentProps) {
-    const [caption, setCaption] = useState("Caption");
+  const [caption, setCaption] = useState("Caption");
 
-    const updateCaption = (e: React.MouseEvent) => {
-        setCaption("FOO");
-    }
-    return(
-        <>
-        <h3>{props.isParent? "I am the child component of Parent": "There might be a bug"}</h3>
-        <button onClick={()=> {
-            console.log('click');
-            props.changeIsParent(props.isParent);
-        }}>Click You</button>
-        <button onClick={updateCaption}>{caption}</button>
-        </>
-        // or <button onClick={() => setIsParent(props.isParent)} 
-    );
+  const updateCaption = (e: React.MouseEvent) => {
+    setCaption("FOO");
+  };
+  return (
+    <>
+      <h3>
+        {props.isParent
+          ? "I am the child component of Parent"
+          : "There might be a bug"}
+      </h3>
+      <button
+        onClick={() => {
+          console.log("click");
+          props.changeIsParent(props.isParent);
+        }}
+      >
+        Click You
+      </button>
+      <button onClick={updateCaption}>{caption}</button>
+    </>
+    // or <button onClick={() => setIsParent(props.isParent)}
+  );
 }
 
 // or use spread operator ex:
@@ -84,12 +92,12 @@ function Child(props: MyParentProps) {
 // return (<ToDoItem {...toDoItem} />);
 // use destructing syntax for receiving props
 
-type Icon = ''
+type Icon = "";
 
 export function MyParentErrBoundary(props: any) {
-    return(
-        <div className="single-task text-bg-danger">
-            <b>ERROR PROCESSING ToDo: {JSON.stringify(props)}</b>
-        </div>
-    );
+  return (
+    <div className="single-task text-bg-danger">
+      <b>ERROR PROCESSING ToDo: {JSON.stringify(props)}</b>
+    </div>
+  );
 }
