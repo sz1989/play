@@ -1,3 +1,4 @@
+'use client'
 import React, { Suspense } from "react";
 
 interface MyData{
@@ -7,13 +8,7 @@ interface MyData{
 
 const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
-async function GetData(): Promise<MyData[]>{
-  await delay(2000);
-  const resp = await fetch("http://localhost:3000/api/users");
-  const data = await resp.json();
-  console.log(data);
-  return data;
-}
+
 
 const people = [
   'Creola Katherine Johnson: mathematician',
@@ -23,12 +18,18 @@ const people = [
   'Subrahmanyan Chandrasekhar: astrophysicist'
 ]
 
-const SuspenseExample = async () => {
-  // const listItems = people.map((p,i) =>
-  //   <li key={i}>{p}</li>
-  // );
+const SuspenseExample = () => {
 
-  const listItems = (await GetData()).map(v => <li key={v.id}>{v.name}</li>);
+  // throw Promise.resolve('test');
+const myGetData = async function GetData(): Promise<MyData[]>{
+  // await delay(6000);
+  const resp = await fetch("http://localhost:3000/api/users"); //, { cache: 'no-store'}); // server side rending
+  const data = await resp.json();
+  console.log(data);
+  return data;
+}
+  const data = myGetData;
+  const listItems = data.map(v => <li key={v.id}>{v.name}</li>);
 
   return (
     <div>

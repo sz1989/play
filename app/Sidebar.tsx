@@ -1,6 +1,6 @@
 import { User } from "./demo";
 
-interface SideBarProps {
+export interface SideBarProps {
   user: User;
 }
 
