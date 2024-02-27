@@ -50,3 +50,6 @@ const locationHeader = response.headers.get('Location');
 Access-Control-Expose-Headers: Location
 response.headers.add("Access-Control-Expose-Headers","Authorization")
 ```
+
+### About DateTimeOffset
+mongodb-csharp-and-datetimes[https://danielwertheim.se/mongodb-csharp-and-datetimes/]
