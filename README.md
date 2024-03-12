@@ -76,3 +76,6 @@ git config http.sslVerify true
 ```
 git config -e 
 ```
+
+## READ AGAIN
+Front-End Developers (https://dev.to/sufian/5-essential-practices-for-front-end-developers-react-edition-3h96)
